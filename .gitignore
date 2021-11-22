@@ -1,0 +1,5 @@
+.idea
+target
+
+# don't keep random 2mb files in git history accidentaly
+pba.gptdisk

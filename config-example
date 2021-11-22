@@ -1,0 +1,40 @@
+# can be trace, debug, info, warn and error
+# defaults to info
+# multiple verbs are joined with no separator,
+# which is useless but generic for all of them
+log-level info
+
+## can be 'off' to ask for password for each locked drive
+## individually, or anything else or absent to ask for password once
+## and try to unlock all drives with it
+#joined-password on
+# ^ not implemented, always asking for passwords separately
+
+# the prompt asking for password
+# the quotes are stripped once from the start and
+# the end of a verb - only to allow trailing spaces in prompt
+prompt 'password: '
+
+# prompt for when SED rejected the password - the prompts from
+# this example config are the default ones, in case you are happy with them
+# but want to keep the config minimal
+retry-prompt 'bad password, retry: '
+
+# can be 'on' to reset the console on incorrect password,
+# such that `retry-prompt` replaces `prompt` inline
+# or anything else to print each retry on the new line
+clear-on-retry on
+
+# message to be shown one the SED decides that you've tried an
+# incorrect password too many times - this requires a power-cycle to fix
+sed-locked-msg Too many bad tries, SED locked out, resetting in 10s..
+
+# a path to the UEFI image
+# multiple verbs are joined by \
+image vmlinuz-linux
+
+# arg verbs are joined by spaces
+arg initrd=/initramfs-linux.img
+
+# or you can put everything in one verb, whatever
+arg rw root=PARTUUID=cc562e1c-da71-7346-98e4-ed1b79a050b2

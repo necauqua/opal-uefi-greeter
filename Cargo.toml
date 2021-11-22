@@ -1,0 +1,26 @@
+[package]
+name = 'opal-uefi-greeter'
+version = '0.1.0'
+authors = ['Anton Bulakh <self@necauqua.dev>']
+edition = '2018'
+license = 'MIT'
+
+[dependencies]
+rlibc = '1.0'
+
+wchar = '0.11'
+uefi = { git = 'https://github.com/rust-osdev/uefi-rs', features = ['exts'] }
+uefi-services = { git = 'https://github.com/rust-osdev/uefi-rs' }
+
+bitflags = '1.2'
+seq-macro = '0.2'
+
+pbkdf2 = { version = "0.9.0", default-features = false }
+sha-1 = { version = "0.9", default-features = false, features = ['force-soft'] }
+hmac = { version = "0.11", default-features = false }
+
+log = { version = '0.4', default-features = false }
+
+[patch.crates-io]
+uefi = { git = 'https://github.com/rust-osdev/uefi-rs' }
+uefi-macros = { git = 'https://github.com/rust-osdev/uefi-rs' }
